@@ -17,6 +17,7 @@
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body>
@@ -24,7 +25,7 @@
         <div class="nav-content">
             <a href="/">
                 <div class="nav-logo">
-                    <img src="./static/img/logo.svg" />
+                    <img src="./static/img/book.svg" />
                 </div>
             </a>
         </div>
@@ -32,9 +33,69 @@
 
     <div class="profile">
         <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg">
+            <img src="./static/img/profile.png">
         </div>
         <h1>{{ title }}</h1>
     </div>
+
+    <div class="about">
+        <h2>Who am I? 🫠</h2>
+        <p>Hi everyone. Welcome to my site. I am glad that you spend time to be here. I am Mike. I am from L.A. I am love dog and cat. I enjoy running. I love cooking noodle soup. I hope you are having a fun and happy day.</p>
+    </div>
+
+    <div class="experience">
+        <h2>Experiences 🔬</h2>
+        <p>
+            <ul>
+                <li>Teaching Assistance at CSULB</li>
+                <li>Math & CS tutor at El Camino College</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="education">
+        <h2>Education ✏️</h2>
+        <p>
+            <ul>
+               <li>Elcamino College - AS </li> 
+                <li>Poly Pomona - BS</li> 
+                <li>Calstate Long Beach - MS</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="travel">
+        <h2>Travel ✈️</h2>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+
+  <!-- ...other content... -->
+
+  <!-- Leaflet JS and map script just before closing body tag -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([39.8283, -98.5795], 4);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+    L.marker([39.0968, -120.0324]).addTo(map).bindPopup('Lake Tahoe');
+    L.marker([37.8651, -119.5383]).addTo(map).bindPopup('Yosemite');
+    L.marker([37.2982, -113.0263]).addTo(map).bindPopup('Zion');
+    L.marker([36.9106, -111.4133]).addTo(map).bindPopup('Lower Antelope Canyon');
+    L.marker([29.7604, -95.3698]).addTo(map).bindPopup('Houston');
+    L.marker([42.3601, -71.0589]).addTo(map).bindPopup('Boston');
+    L.marker([35.7915, -78.7811]).addTo(map).bindPopup('Cary, NC');
+    L.marker([40.7128, -74.0060]).addTo(map).bindPopup('New York');
+    L.marker([27.9944, -81.7603]).addTo(map).bindPopup('Florida');
+    L.marker([24.5551, -81.7800]).addTo(map).bindPopup('Key West');
+    L.marker([47.6062, -122.3321]).addTo(map).bindPopup('Seattle');
+    L.marker([37.7749, -122.4194]).addTo(map).bindPopup('San Francisco');
+    L.marker([20.7967, -156.3319]).addTo(map).bindPopup('Hawaii');
+    L.marker([41.8781, -87.6298]).addTo(map).bindPopup('Chicago');
+    L.marker([46.7296, -94.6859]).addTo(map).bindPopup('Minnesota');
+  </script>
+    </div>
+
 </body>
+
 </html>
