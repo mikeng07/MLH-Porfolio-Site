@@ -13,11 +13,20 @@ body {
 
 .nav-bar {
     width: 100%;
-    display: inline-block;
+    display: block;
     background-color: #1C539F;
     font-family: "Roboto", serif;
     font-weight: 700 !important;
     padding-top: 10px;
+    padding-bottom: 0;
+    border-bottom: none;
+    box-shadow: none;
+    margin-bottom: 0;
+}
+
+.nav-content {
+    margin: 0;
+    padding: 0;
 }
 
 .nav-content .logo-touch-target {
@@ -35,10 +44,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-logo img {
-    width: 200px;
+    width: 140px;
+    height: auto;
+    max-width: 100%;
+    max-height: 70px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
 .nav-content nav {
