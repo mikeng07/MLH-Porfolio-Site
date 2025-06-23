@@ -38,6 +38,13 @@
         <h1>{{ title }}</h1>
     </div>
 
+        <nav>
+    <ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('hobbies') }}">Hobbies</a></li>
+  </ul>
+    </nav>
+
     <div class="about">
         <h2>Who am I? 🫠</h2>
         <p>Hi everyone. Welcome to my site. I am glad that you spend time to be here. I am Mike. I am from L.A. I am love dog and cat. I enjoy running. I love cooking noodle soup. I hope you are having a fun and happy day.</p>
@@ -45,23 +52,26 @@
 
     <div class="experience">
         <h2>Experiences 🔬</h2>
-        <p>
-            <ul>
-                <li>Teaching Assistance at CSULB</li>
-                <li>Math & CS tutor at El Camino College</li>
-            </ul>
-        </p>
+         <ul>
+        {% for exp in experiences %}
+        <li>
+            {{exp.title}} at {{exp.company}}
+            
+        </li>
+        {% endfor %}
+    </ul>
     </div>
 
     <div class="education">
         <h2>Education ✏️</h2>
-        <p>
-            <ul>
-               <li>Elcamino College - AS </li> 
-                <li>Poly Pomona - BS</li> 
-                <li>Calstate Long Beach - MS</li>
-            </ul>
-        </p>
+         <ul>
+        {% for edu in educations %}
+        <li>
+            {{edu.school}} - {{edu.degree}}
+            
+        </li>
+        {% endfor %}
+    </ul>
     </div>
 
     <div class="travel">
