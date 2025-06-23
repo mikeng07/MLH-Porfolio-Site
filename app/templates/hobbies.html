@@ -35,17 +35,16 @@
         <div id="profile-picture" class="profile-picture">
             <img src="./static/img/profile.png">
         </div>
-        <h1>{{ title }}</h1>
+        <h1>Learning</h1>
     </div>
     <nav>
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="hobbies.html">Hobbies</a></li>
-    <!-- Add other links as needed -->
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('hobbies') }}">Hobbies</a></li>
   </ul>
 </nav>
     <div class ="hobbies">
-        <h2>Hobbiees 🏃‍♂️</h2>
+        <h2>Hobbies 🏃‍♂️</h2>
         <ul>
             <li>I enjoy out door activies such as running or swimming</li>
             <li>I enjoy watching camping video on youtube</li>
