@@ -8,12 +8,22 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', title="Leanring", url=os.getenv("URL"))
+    experiences = [
+        {'title': 'Teaching Assistant', 'company' : 'CSULB'},
+        {'title': 'Teaching Assistant', 'company' : 'El Camino'},
+
+    ]
+
+    educations = [
+        {'degree' : 'AS', 'school' : 'El Camino College'},
+        {'degree' : 'BS', 'school' : 'Cal Poly Pomona'},
+        {'degree' : 'MS', 'school' : 'CalState Long Beach'}
+    ]
+    return render_template('index.html', title="Learning", url=os.getenv("URL"), experiences = experiences, educations = educations)
     
-@app.route('/')
-def home():
-    return render_template('index.html')
+
 
 @app.route('/hobbies')
 def hobbies():
     return render_template('hobbies.html')
+
