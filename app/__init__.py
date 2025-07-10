@@ -19,7 +19,7 @@ def index():
         {'degree' : 'BS', 'school' : 'Cal Poly Pomona'},
         {'degree' : 'MS', 'school' : 'CalState Long Beach'}
     ]
-    return render_template('index.html', title="Learning", url=os.getenv("URL"), experiences = experiences, educations = educations)
+    return render_template('index.html', title="Learning Something", url=os.getenv("URL"), experiences = experiences, educations = educations)
     
 
 
