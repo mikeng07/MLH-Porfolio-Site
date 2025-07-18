@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeline</title>
+    <link rel="stylesheet" href="/static/styles/main.css">
+</head>
+<body>
+    <h1>Timeline</h1>
+    <form id="timelineForm" class="timeline-form">
+        <label>
+            Name:<br>
+            <input type="text" name="name" required>
+        </label><br><br>
+        <label>
+            Email:<br>
+            <input type="email" name="email" required>
+        </label><br><br>
+        <label>
+            Content:<br>
+            <textarea name="content" rows="3" required></textarea>
+        </label><br><br>
+        <button type="submit">Post</button>
+    </form>
+
+    <div id="timelinePosts" class="timeline-list"></div>
+
+    <script>
+        // Fetch and render timeline posts
+        async function loadTimelinePosts() {
+            const res = await fetch('/api/timeline_post');
+            const data = await res.json();
+            const posts = data.timeline_posts;
+            const container = document.getElementById('timelinePosts');
+            container.innerHTML = '';
+            posts.forEach(post => {
+                const div = document.createElement('div');
+                div.className = 'timeline-post';
+                div.innerHTML = `
+                    <div class="post-content">
+                        <div><strong>${post.name}</strong> <span class="post-meta">(${post.email})</span></div>
+                        <div>${post.content}</div>
+                        <div class="post-meta">${new Date(post.created_at).toLocaleString()}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Handle form submission
+        document.getElementById('timelineForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = new URLSearchParams(formData);
+            await fetch('/api/timeline_post', {
+                method: 'POST',
+                body: data
+            });
+            form.reset();
+            loadTimelinePosts();
+        });
+
+        // Load posts on page load
+        loadTimelinePosts();
+    </script>
+</body>
+</html>
