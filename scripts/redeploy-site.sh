@@ -4,7 +4,7 @@
 tmux kill-server
 
 # go to porfolio directory
-cd MLH-Porfolio-Site
+cd ~/MLH-Porfolio-Site
 
 # get the latest change and ignored all uncommited
 git fetch && git reset origin/main --hard
