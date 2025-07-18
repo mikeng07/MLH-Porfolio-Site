@@ -19,7 +19,7 @@ echo "Fetching timeline posts"
 GET_RESPONSE=$(curl -s http://127.0.0.1:5000/api/timeline_post)
 
 
-# Check if the new post is in the GET response
+# Check if the new name is in the GET response
 echo "Checking if the new name was added..."
 if echo "$GET_RESPONSE" | grep -q "$NAME"; then
   echo "New name: "$NAME" found!"
