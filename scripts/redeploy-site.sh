@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# kill all server
-tmux kill-server
-
 # go to porfolio directory
 cd ~/MLH-Porfolio-Site
 
@@ -10,7 +7,10 @@ cd ~/MLH-Porfolio-Site
 git fetch && git reset origin/main --hard
 
 # start new detached tmux session
-tmux new-session -d -s portfolio bash -c "source python3-virtualenv/bin/activate && pip install -r requirements.txt && flask run --host=0.0.0.0"
+tmux new-session -d -s portfolio bash -c "source python3-virtualenv/bin/activate && pip install -r requirements.txt "
+
+# restart myportfolio service
+systemctl restart myportfolio
 
 # confirm
 echo "Redeployed"
