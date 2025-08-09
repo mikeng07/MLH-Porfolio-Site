@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
-from peewee import MySQLDatabase, Model, CharField, TextField, DateTimeField
+from peewee import MySQLDatabase, SqliteDatabase, Model, CharField, TextField, DateTimeField
 import datetime
 from playhouse.shortcuts import model_to_dict
 
