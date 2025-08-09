@@ -72,7 +72,7 @@ def timeline():
 def index():
     experiences = [
         {"title": "Teaching Assistant", "company": "CSULB"},
-        {"title": "Teaching Assistant", "company": "El Camino"},
+        {"title": "CS Tutor", "company": "El Camino"},
     ]
 
     educations = [
