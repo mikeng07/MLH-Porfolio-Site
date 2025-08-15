@@ -71,6 +71,7 @@ def timeline():
 @app.route("/")
 def index():
     experiences = [
+        {"title": "Student Accelerator", "company" : "CSUMB"},
         {"title": "Teaching Assistant", "company": "CSULB"},
         {"title": "CS Tutor", "company": "El Camino"},
     ]
